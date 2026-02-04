@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 config = read_yaml(CONFIG_PATH)["llm"]["models"]
-# The Brain: High reasoning, low rate limit (12k TPM)
 
 if config['provider']=="groq":
     llm = ChatGroq(
