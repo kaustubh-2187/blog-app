@@ -47,6 +47,13 @@ RUN mkdir -p /etc/apt/keyrings && \
     rm -rf /var/lib/apt/lists/*
 
 # -----------------------------
+# Docker socket permissions
+# -----------------------------
+ARG DOCKER_GID=999
+RUN groupadd -g ${DOCKER_GID} docker || true && \
+    usermod -aG docker jenkins
+
+# -----------------------------
 # Back to Jenkins user
 # -----------------------------
 USER jenkins

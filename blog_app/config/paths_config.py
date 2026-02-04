@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-CONFIG_PATH = r"blog_app\config\config.yaml"
+CONFIG_PATH = Path("blog_app\config\config.yaml")
 
 DATA_PATH = Path("data")
 IMAGES_PATH = Path("images")
