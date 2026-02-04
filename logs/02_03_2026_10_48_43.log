@@ -1,0 +1,12 @@
+{"timestamp": "2026-02-03T05:18:44.386961Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T05:18:45.208977Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T05:18:45.209284Z", "level": "info", "event": "Building the reducer subgraph"}
+{"timestamp": "2026-02-03T05:18:45.215253Z", "level": "info", "event": "Reduver Graph Sucessfully built and compiled"}
+{"timestamp": "2026-02-03T05:18:45.215553Z", "level": "info", "event": "Building the main graph"}
+{"timestamp": "2026-02-03T05:18:45.225026Z", "level": "info", "event": "Main Graph Sucessfully Built and Compiled"}
+{"timestamp": "2026-02-03T05:18:45.228405Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T05:18:45.228694Z", "level": "info", "event": "Starting router node"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T05:18:45.871971Z", "level": "info", "event": "Routing decision: mode=hybrid, needs_research=True"}
+{"timestamp": "2026-02-03T05:18:45.874763Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"exc_info": true, "timestamp": "2026-02-03T05:18:45.875024Z", "level": "error", "event": "Research node failed: 'max_queries'"}

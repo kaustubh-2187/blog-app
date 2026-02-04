@@ -1,0 +1,32 @@
+dotenv
+pandas
+numpy
+setuptools
+langchain
+langchain_core
+langgraph
+langchain_google_genai
+langchain_groq
+langchain_community
+streamlit
+google.genai
+structlog
+
+# Testing dependencies
+pytest==8.0.0
+pytest-asyncio>=0.23.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+pytest-env==1.1.3
+freezegun==1.4.0
+faker==22.0.0
+
+# FastAPI dependencies
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+pydantic==2.10.0
+python-multipart==0.0.12
+aiofiles==24.1.0
+
+dvc 
+dvc-gdrive

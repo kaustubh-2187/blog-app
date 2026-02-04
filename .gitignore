@@ -1,0 +1,11 @@
+data/
+images/
+venv/
+frontend.py
+backend.py
+run_api.py
+run_pipeline.py
+sample.py
+.coverage
+pytest.ini
+.env

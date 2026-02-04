@@ -1,0 +1,38 @@
+{"timestamp": "2026-02-03T07:08:18.242991Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T07:08:18.858305Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T07:08:18.858571Z", "level": "info", "event": "Building the reducer subgraph"}
+{"timestamp": "2026-02-03T07:08:18.864034Z", "level": "info", "event": "Reduver Graph Sucessfully built and compiled"}
+{"timestamp": "2026-02-03T07:08:18.864167Z", "level": "info", "event": "Building the main graph"}
+{"timestamp": "2026-02-03T07:08:18.875748Z", "level": "info", "event": "Main Graph Sucessfully Built and Compiled"}
+{"timestamp": "2026-02-03T07:08:18.878562Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T07:08:18.878750Z", "level": "info", "event": "Starting router node"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T07:08:19.488632Z", "level": "info", "event": "Routing decision: mode=hybrid, needs_research=True"}
+{"timestamp": "2026-02-03T07:08:19.491196Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T07:08:40.477412Z", "level": "info", "event": "Orchestrator node completed successfully"}
+{"timestamp": "2026-02-03T07:08:40.478826Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T07:08:40.479187Z", "level": "info", "event": "Generating section: task_id=1, title='Introduction to LangGraph'"}
+{"timestamp": "2026-02-03T07:08:40.479362Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T07:08:40.480953Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T07:08:40.481248Z", "level": "info", "event": "Generating section: task_id=2, title='Key Features of LangGraph'"}
+{"timestamp": "2026-02-03T07:08:40.481542Z", "level": "info", "event": "Generating section: task_id=3, title='Building Agentic Workflows with LangGraph'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T07:08:41.447680Z", "level": "info", "event": "Worker node completed task_id=1"}
+{"timestamp": "2026-02-03T07:08:41.448138Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T07:08:41.448392Z", "level": "info", "event": "Generating section: task_id=4, title='Real-World Applications of LangGraph'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T07:08:41.587281Z", "level": "info", "event": "Worker node completed task_id=3"}
+{"timestamp": "2026-02-03T07:08:41.587705Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T07:08:41.588012Z", "level": "info", "event": "Generating section: task_id=5, title='Best Practices for Working with LangGraph'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T07:08:41.883090Z", "level": "info", "event": "Worker node completed task_id=2"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T07:08:42.367752Z", "level": "info", "event": "Worker node completed task_id=5"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T07:08:42.695392Z", "level": "info", "event": "Worker node completed task_id=4"}
+{"timestamp": "2026-02-03T07:08:42.696803Z", "level": "info", "event": "Content merged successfully"}
+{"timestamp": "2026-02-03T07:08:42.699815Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T07:08:42.702409Z", "level": "info", "event": "Image generation disabled in config - skipping image planning"}
+{"timestamp": "2026-02-03T07:08:42.703158Z", "level": "error", "event": "generate_and_place_images failed: 'run_id'"}

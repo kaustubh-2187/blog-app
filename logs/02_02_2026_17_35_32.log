@@ -1,0 +1,9 @@
+{"timestamp": "2026-02-02T12:05:32.386543Z", "level": "info", "event": "Building the reducer subgraph"}
+{"timestamp": "2026-02-02T12:05:32.393018Z", "level": "info", "event": "Reduver Graph Sucessfully built and compiled"}
+{"timestamp": "2026-02-02T12:05:32.393244Z", "level": "info", "event": "Building the main graph"}
+{"timestamp": "2026-02-02T12:05:32.405277Z", "level": "info", "event": "Main Graph Sucessfully Built and Compiled"}
+{"timestamp": "2026-02-02T12:05:32.406745Z", "level": "info", "event": "Starting router node"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T12:05:33.283866Z", "level": "info", "event": "Routing decision: mode=hybrid, needs_research=True"}
+{"timestamp": "2026-02-02T12:05:46.214329Z", "level": "info", "event": "Total raw research items: 30"}
+{"exc_info": true, "timestamp": "2026-02-02T12:05:46.216199Z", "level": "error", "event": "Research node failed: type object 'ResearchNode' has no attribute '_chunk_list'"}

@@ -1,0 +1,46 @@
+{"timestamp": "2026-02-03T06:35:12.303945Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T06:35:12.907098Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T06:35:12.907378Z", "level": "info", "event": "Building the reducer subgraph"}
+{"timestamp": "2026-02-03T06:35:12.912643Z", "level": "info", "event": "Reduver Graph Sucessfully built and compiled"}
+{"timestamp": "2026-02-03T06:35:12.912776Z", "level": "info", "event": "Building the main graph"}
+{"timestamp": "2026-02-03T06:35:12.924484Z", "level": "info", "event": "Main Graph Sucessfully Built and Compiled"}
+{"timestamp": "2026-02-03T06:35:12.927377Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T06:35:12.927580Z", "level": "info", "event": "Starting router node"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T06:35:13.429581Z", "level": "info", "event": "Routing decision: mode=hybrid, needs_research=True"}
+{"timestamp": "2026-02-03T06:35:13.433070Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T06:35:25.270949Z", "level": "info", "event": "Orchestrator node completed successfully"}
+{"timestamp": "2026-02-03T06:35:25.272458Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T06:35:25.272761Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T06:35:25.272919Z", "level": "info", "event": "Generating section: task_id=1, title='Introduction to LangGraph and agentic workflows'"}
+{"timestamp": "2026-02-03T06:35:25.273132Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T06:35:25.273442Z", "level": "info", "event": "Generating section: task_id=2, title='Building agentic workflows with LangGraph and Box'"}
+{"timestamp": "2026-02-03T06:35:25.274887Z", "level": "info", "event": "Generating section: task_id=3, title='LangGraph and Granite for agentic workflows'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T06:35:26.141445Z", "level": "info", "event": "Worker node completed task_id=1"}
+{"timestamp": "2026-02-03T06:35:26.141936Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T06:35:26.142225Z", "level": "info", "event": "Generating section: task_id=4, title='Building agentic AI apps with LangChain and LangGraph'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T06:35:26.203346Z", "level": "info", "event": "Worker node completed task_id=3"}
+{"timestamp": "2026-02-03T06:35:26.203755Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T06:35:26.203976Z", "level": "info", "event": "Generating section: task_id=5, title='LangGraph AI agent framework for production applications'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T06:35:26.666825Z", "level": "info", "event": "Worker node completed task_id=2"}
+{"timestamp": "2026-02-03T06:35:26.667261Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T06:35:26.667509Z", "level": "info", "event": "Generating section: task_id=6, title='Agentic workflow patterns and components'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T06:35:27.420744Z", "level": "info", "event": "Worker node completed task_id=4"}
+{"timestamp": "2026-02-03T06:35:27.421202Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-03T06:35:27.421477Z", "level": "info", "event": "Generating section: task_id=7, title='Conclusion and future of agentic workflows'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T06:35:27.492443Z", "level": "info", "event": "Worker node completed task_id=5"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T06:35:27.536915Z", "level": "info", "event": "Worker node completed task_id=6"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-03T06:35:28.098020Z", "level": "info", "event": "Worker node completed task_id=7"}
+{"timestamp": "2026-02-03T06:35:28.099256Z", "level": "info", "event": "Content merged successfully"}
+{"timestamp": "2026-02-03T06:35:28.102197Z", "level": "info", "event": "Config loaded successfully from blog_app\\config\\config.yaml"}
+{"timestamp": "2026-02-03T06:35:28.104185Z", "level": "info", "event": "Image generation disabled in config - skipping image planning"}
+{"timestamp": "2026-02-03T06:35:28.105377Z", "level": "info", "event": "No images requested; markdown written directly"}

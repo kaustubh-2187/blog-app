@@ -1,0 +1,41 @@
+{"timestamp": "2026-02-02T11:35:44.969934Z", "level": "info", "event": "Building the reducer subgraph"}
+{"timestamp": "2026-02-02T11:35:44.975298Z", "level": "info", "event": "Reduver Graph Sucessfully built and compiled"}
+{"timestamp": "2026-02-02T11:35:44.975497Z", "level": "info", "event": "Building the main graph"}
+{"timestamp": "2026-02-02T11:35:44.984396Z", "level": "info", "event": "Main Graph Sucessfully Built and Compiled"}
+{"timestamp": "2026-02-02T11:35:44.985639Z", "level": "info", "event": "Starting router node"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:35:45.726145Z", "level": "info", "event": "Routing decision: mode=hybrid, needs_research=True"}
+{"timestamp": "2026-02-02T11:35:45.726989Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+{"timestamp": "2026-02-02T11:35:45.727154Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+{"timestamp": "2026-02-02T11:35:45.727308Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+{"timestamp": "2026-02-02T11:35:45.727436Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+{"timestamp": "2026-02-02T11:35:45.727557Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:35:47.118663Z", "level": "info", "event": "Orchestrator node completed successfully"}
+{"timestamp": "2026-02-02T11:35:47.120161Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:35:47.120433Z", "level": "info", "event": "Generating section: task_id=1, title='Introduction to LangGraph'"}
+{"timestamp": "2026-02-02T11:35:47.120579Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:35:47.120808Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:35:47.122051Z", "level": "info", "event": "Generating section: task_id=2, title='Agentic workflows overview'"}
+{"timestamp": "2026-02-02T11:35:47.122238Z", "level": "info", "event": "Generating section: task_id=3, title='LangGraph architecture'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:35:47.838441Z", "level": "info", "event": "Worker node completed task_id=2"}
+{"timestamp": "2026-02-02T11:35:47.838851Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:35:47.839115Z", "level": "info", "event": "Generating section: task_id=4, title='Enabling agentic workflows with LangGraph'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:35:47.878065Z", "level": "info", "event": "Worker node completed task_id=1"}
+{"timestamp": "2026-02-02T11:35:47.878459Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:35:47.878636Z", "level": "info", "event": "Generating section: task_id=5, title='Case studies and examples'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:35:48.488752Z", "level": "info", "event": "Worker node completed task_id=3"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:35:48.613417Z", "level": "info", "event": "Worker node completed task_id=4"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:35:48.892463Z", "level": "info", "event": "Worker node completed task_id=5"}
+{"timestamp": "2026-02-02T11:35:48.893887Z", "level": "info", "event": "Content merged successfully"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:35:50.154232Z", "level": "info", "event": "Applying images to markdown"}
+{"timestamp": "2026-02-02T11:35:50.154837Z", "level": "error", "event": "Image generation failed for langgraph_architecture.png: ImageService._gemini_generate_image_bytes() takes 1 positional argument but 2 were given"}
+{"timestamp": "2026-02-02T11:35:50.155328Z", "level": "error", "event": "Image generation failed for agentic_workflows_overview.png: ImageService._gemini_generate_image_bytes() takes 1 positional argument but 2 were given"}
+{"timestamp": "2026-02-02T11:35:50.155686Z", "level": "error", "event": "Image generation failed for langgraph_components.png: ImageService._gemini_generate_image_bytes() takes 1 positional argument but 2 were given"}
+{"timestamp": "2026-02-02T11:35:50.156133Z", "level": "error", "event": "generate_and_place_images failed: data must be str, not NoneType"}

@@ -1,0 +1,77 @@
+# ============================
+# Global App Configuration
+# ============================
+
+app:
+  name: blog-agent
+  version: 0.1
+
+# ============================
+# Graph / Execution Settings
+# ============================
+
+graph:
+  recursion_limit: 50
+  max_concurrency: 3
+
+# ============================
+# LLM Configuration
+# ============================
+
+llm:
+  models:
+    provider: google
+    model_name: gemini-2.5-flash
+    temperature: 0.7
+    max_retries: 1
+    # provider: groq
+    # model_name: llama-3.3-70b-versatile
+    # max_retries: 5
+
+# ============================
+# Image Generation
+# ============================
+
+images_model:
+  enabled: false
+  model_name: gemini-2.5-flash-image
+  max_images: 2
+  quality: medium
+  default_size: 1024x1024
+
+# ============================
+# Research Configuration
+# ============================
+
+research:
+  max_queries: 10
+
+  tavily:
+    max_results: 2
+    max_results_per_query: 3
+
+# ============================
+# Router Configuration
+# ============================
+
+router:
+  recency_days:
+    closed_book: 365
+    hybrid: 30
+    open_book: 7
+
+# ============================
+# Output Configuration
+# ============================
+
+output:
+  markdown_dir: .
+  overwrite_existing: true
+
+# ============================
+# Logging
+# ============================
+
+logging:
+  level: INFO
+  log_dir: logs

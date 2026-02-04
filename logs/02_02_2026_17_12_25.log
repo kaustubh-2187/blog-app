@@ -1,0 +1,47 @@
+{"timestamp": "2026-02-02T11:42:25.592321Z", "level": "info", "event": "Building the reducer subgraph"}
+{"timestamp": "2026-02-02T11:42:25.597992Z", "level": "info", "event": "Reduver Graph Sucessfully built and compiled"}
+{"timestamp": "2026-02-02T11:42:25.598207Z", "level": "info", "event": "Building the main graph"}
+{"timestamp": "2026-02-02T11:42:25.606955Z", "level": "info", "event": "Main Graph Sucessfully Built and Compiled"}
+{"timestamp": "2026-02-02T11:42:25.608455Z", "level": "info", "event": "Starting router node"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:42:26.518818Z", "level": "info", "event": "Routing decision: mode=hybrid, needs_research=True"}
+{"timestamp": "2026-02-02T11:42:26.519840Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+{"timestamp": "2026-02-02T11:42:26.520044Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+{"timestamp": "2026-02-02T11:42:26.520219Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+{"timestamp": "2026-02-02T11:42:26.520368Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+{"timestamp": "2026-02-02T11:42:26.520491Z", "level": "warning", "event": "TAVILY_API_KEY not set; skipping research"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:42:27.785899Z", "level": "info", "event": "Orchestrator node completed successfully"}
+{"timestamp": "2026-02-02T11:42:27.787318Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:42:27.787660Z", "level": "info", "event": "Generating section: task_id=1, title='Introduction to LangGraph'"}
+{"timestamp": "2026-02-02T11:42:27.787807Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:42:27.789151Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:42:27.789390Z", "level": "info", "event": "Generating section: task_id=2, title='Agentic Workflows Overview'"}
+{"timestamp": "2026-02-02T11:42:27.789636Z", "level": "info", "event": "Generating section: task_id=3, title='LangGraph Architecture'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:42:28.435442Z", "level": "info", "event": "Worker node completed task_id=1"}
+{"timestamp": "2026-02-02T11:42:28.435827Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:42:28.436050Z", "level": "info", "event": "Generating section: task_id=4, title='Enabling Agentic Workflows with LangGraph'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:42:28.757761Z", "level": "info", "event": "Worker node completed task_id=2"}
+{"timestamp": "2026-02-02T11:42:28.758194Z", "level": "info", "event": "Worker node started"}
+{"timestamp": "2026-02-02T11:42:28.758395Z", "level": "info", "event": "Generating section: task_id=5, title='Conclusion and Future Directions'"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:42:28.925562Z", "level": "info", "event": "Worker node completed task_id=3"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:42:29.336340Z", "level": "info", "event": "Worker node completed task_id=4"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:42:29.430455Z", "level": "info", "event": "Worker node completed task_id=5"}
+{"timestamp": "2026-02-02T11:42:29.431930Z", "level": "info", "event": "Content merged successfully"}
+HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+{"timestamp": "2026-02-02T11:42:33.287654Z", "level": "info", "event": "Applying images to markdown"}
+{"timestamp": "2026-02-02T11:42:34.152648Z", "level": "error", "event": "GOOGLE_API_KEY error"}
+{"timestamp": "2026-02-02T11:42:34.152959Z", "level": "error", "event": "Error during generating image bytes : GOOGLE_API_KEY is not set."}
+{"timestamp": "2026-02-02T11:42:34.153782Z", "level": "error", "event": "Image generation failed for langgraph-architecture.png: Error in [C:\\Users\\kaust\\Python\\Projects\\blog\\blog_app\\services\\image_service.py] at line [33] | Message: Failed during generating image bytes\nTraceback:\nTraceback (most recent call last):\n  File \"C:\\Users\\kaust\\Python\\Projects\\blog\\blog_app\\services\\image_service.py\", line 33, in _gemini_generate_image_bytes\n    raise RuntimeError(\"GOOGLE_API_KEY is not set.\")\nRuntimeError: GOOGLE_API_KEY is not set.\n"}
+{"timestamp": "2026-02-02T11:42:34.154116Z", "level": "error", "event": "GOOGLE_API_KEY error"}
+{"timestamp": "2026-02-02T11:42:34.154282Z", "level": "error", "event": "Error during generating image bytes : GOOGLE_API_KEY is not set."}
+{"timestamp": "2026-02-02T11:42:34.154703Z", "level": "error", "event": "Image generation failed for agentic-workflows.png: Error in [C:\\Users\\kaust\\Python\\Projects\\blog\\blog_app\\services\\image_service.py] at line [33] | Message: Failed during generating image bytes\nTraceback:\nTraceback (most recent call last):\n  File \"C:\\Users\\kaust\\Python\\Projects\\blog\\blog_app\\services\\image_service.py\", line 33, in _gemini_generate_image_bytes\n    raise RuntimeError(\"GOOGLE_API_KEY is not set.\")\nRuntimeError: GOOGLE_API_KEY is not set.\n"}
+{"timestamp": "2026-02-02T11:42:34.154933Z", "level": "error", "event": "GOOGLE_API_KEY error"}
+{"timestamp": "2026-02-02T11:42:34.155054Z", "level": "error", "event": "Error during generating image bytes : GOOGLE_API_KEY is not set."}
+{"timestamp": "2026-02-02T11:42:34.155306Z", "level": "error", "event": "Image generation failed for langgraph-benefits.png: Error in [C:\\Users\\kaust\\Python\\Projects\\blog\\blog_app\\services\\image_service.py] at line [33] | Message: Failed during generating image bytes\nTraceback:\nTraceback (most recent call last):\n  File \"C:\\Users\\kaust\\Python\\Projects\\blog\\blog_app\\services\\image_service.py\", line 33, in _gemini_generate_image_bytes\n    raise RuntimeError(\"GOOGLE_API_KEY is not set.\")\nRuntimeError: GOOGLE_API_KEY is not set.\n"}
+{"timestamp": "2026-02-02T11:42:34.155994Z", "level": "info", "event": "Final markdown written with images"}
