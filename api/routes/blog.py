@@ -13,7 +13,7 @@ from api.models.responses import (
     PlanInfo,
     TaskInfo
 )
-from run_pipeline import run_blog_pipeline
+from blog_app.run_pipeline import run_blog_pipeline
 from blog_app.config.paths_config import get_run_output_dir, get_markdown_dir
 
 router = APIRouter()

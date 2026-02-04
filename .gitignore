@@ -3,7 +3,7 @@ images/
 venv/
 frontend.py
 backend.py
-run_pipeline.py
+run_api.py
 sample.py
 .coverage
 pytest.ini
