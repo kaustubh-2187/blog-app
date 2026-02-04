@@ -20,7 +20,7 @@ pipeline {
                         extensions: [], 
                         userRemoteConfigs: [[
                             credentialsId: 'github-token', 
-                            url: 'https://github.com/YOUR-USERNAME/blog-planner.git'
+                            url: 'https://github.com/kaustubh-2187/blog-app.git'
                         ]]
                     )
                 }

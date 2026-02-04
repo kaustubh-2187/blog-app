@@ -30,3 +30,4 @@ aiofiles==24.1.0
 
 dvc 
 dvc-gdrive
+dvc-gs
