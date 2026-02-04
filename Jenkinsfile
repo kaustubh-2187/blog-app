@@ -109,7 +109,7 @@ pipeline {
                             --cpu=1 \
                             --min-instances=0 \
                             --max-instances=10 \
-                            --set-env-vars="GROQ_API_KEY=${GROQ_API_KEY},TAVILY_API_KEY=${TAVILY_API_KEY},GOOGLE_API_KEY=${GOOGLE_API_KEY}"
+                            --set-env-vars="GROQ_API_KEY=${GROQ_KEY},TAVILY_API_KEY=${TAVILY_KEY},GOOGLE_API_KEY=${GOOGLE_KEY}"
                         '''
                     }
                 }
