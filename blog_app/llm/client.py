@@ -28,10 +28,3 @@ else:
     raise ValueError(
         f"Unsupported LLM provider: {config['provider']}"
     )
-
-# # The Writer: Good reasoning, high rate limit (30k TPM)
-# llm_writer = ChatGroq(
-#     model="llama-3.1-8b-instant", 
-#     groq_api_key="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",
-#     max_retries=5
-# )
