@@ -10,3 +10,4 @@ pytest.ini
 .env
 gen-lang-client-0068855436-6ac47f371465.json
 /data
+removed_from_jenkins

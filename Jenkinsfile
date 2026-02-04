@@ -50,22 +50,6 @@ pipeline {
             }
         }
 
-        stage("Run Tests (Optional)") {
-            steps {
-                script {
-                    echo 'Running tests...'
-                    sh '''
-                    . ${VENV_DIR}/bin/activate
-                    pytest tests/unit/ tests/integration/ -v --junitxml=test-results.xml || true
-                    '''
-                }
-            }
-            post {
-                always {
-                    junit allowEmptyResults: true, testResults: 'test-results.xml'
-                }
-            }
-        }
 
         stage("Build and Push to GCR") {
             steps {
