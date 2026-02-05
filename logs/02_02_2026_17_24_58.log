@@ -1,9 +1,0 @@
-{"timestamp": "2026-02-02T11:54:58.228155Z", "level": "info", "event": "Building the reducer subgraph"}
-{"timestamp": "2026-02-02T11:54:58.235853Z", "level": "info", "event": "Reduver Graph Sucessfully built and compiled"}
-{"timestamp": "2026-02-02T11:54:58.236077Z", "level": "info", "event": "Building the main graph"}
-{"timestamp": "2026-02-02T11:54:58.245340Z", "level": "info", "event": "Main Graph Sucessfully Built and Compiled"}
-{"timestamp": "2026-02-02T11:54:58.246940Z", "level": "info", "event": "Starting router node"}
-HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
-{"timestamp": "2026-02-02T11:54:58.890362Z", "level": "info", "event": "Routing decision: mode=hybrid, needs_research=True"}
-HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
-{"exc_info": true, "timestamp": "2026-02-02T11:55:16.477259Z", "level": "error", "event": "Research node failed: Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01kd3szkrkepmsmqjdzyjfsymq` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 14360, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"}

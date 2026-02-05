@@ -1,7 +1,0 @@
-{"timestamp": "2026-02-02T12:08:39.247997Z", "level": "info", "event": "Building the reducer subgraph"}
-{"timestamp": "2026-02-02T12:08:39.253535Z", "level": "info", "event": "Reduver Graph Sucessfully built and compiled"}
-{"timestamp": "2026-02-02T12:08:39.253804Z", "level": "info", "event": "Building the main graph"}
-{"timestamp": "2026-02-02T12:08:39.262816Z", "level": "info", "event": "Main Graph Sucessfully Built and Compiled"}
-{"timestamp": "2026-02-02T12:08:39.264096Z", "level": "info", "event": "Starting router node"}
-HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
-{"exc_info": true, "timestamp": "2026-02-02T12:08:39.568309Z", "level": "error", "event": "Router node failed: Error code: 400 - {'error': {'message': 'tool call validation failed: parameters for tool RouterDecision did not match schema: errors: [`/max_results_per_query`: expected integer, but got string, `/needs_research`: expected boolean, but got string]', 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=RouterDecision> {\"name\": \"How LangGraph enables agentic workflows\", \"mode\": \"hybrid\", \"reason\": \"agentic workflows, LangGraph\", \"needs_research\": \"true\", \"max_results_per_query\": \"5\"} </function>'}}"}
