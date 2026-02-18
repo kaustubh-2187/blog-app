@@ -30,7 +30,7 @@ notebooks/
 
 # GCP credentials
 *.json
-*.egg-info
+*.egg-info/
 !requirements.json
 
 # Coverage
