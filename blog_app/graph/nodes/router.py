@@ -50,10 +50,13 @@ class RouterNode:
             #     recency_days = config['recency_days']['closed_book']
             recency_days = config["recency_days"].get(decision.mode)
 
-            logger.info(
-                f"Routing decision: mode={decision.mode}, "
-                f"needs_research={decision.needs_research}"
-            )
+            if decision.needs_research:
+                logger.info(f"🧠 Router decided: mode='{decision.mode}', research NEEDED")
+                logger.info(f"🔍 Generated {len(decision.queries)} search queries")
+            else:
+                logger.info(f"🧠 Router decided: mode='{decision.mode}', no research needed")
+            
+            logger.info(f"⏱️ Recency window: {recency_days} days")
 
             return {
                 "needs_research": decision.needs_research,

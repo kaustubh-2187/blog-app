@@ -56,7 +56,7 @@ class ImageService:
                 ),
             )
 
-            # Depending on SDK version, parts may hang off resp.candidates[0].content.parts
+           
             parts = getattr(resp, "parts", None)
             if not parts and getattr(resp, "candidates", None):
                 try:

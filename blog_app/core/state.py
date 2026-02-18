@@ -5,6 +5,7 @@ import operator
 
 class State(TypedDict):
     topic: str
+    run_id: str  # Added to track the unique run identifier
 
     # routing / research
     mode: str
@@ -21,6 +22,7 @@ class State(TypedDict):
     sections: Annotated[List[tuple[int, str]], operator.add]  # (task_id, section_md)
 
     # reducer/image
+    images_enabled: bool  # Whether to generate images
     merged_md: str
     md_with_placeholders: str
     image_specs: List[dict]

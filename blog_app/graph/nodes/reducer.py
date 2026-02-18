@@ -1,5 +1,4 @@
 import sys
-import uuid
 
 from dotenv import load_dotenv
 from pathlib import Path
@@ -51,8 +50,8 @@ class ReducerNode:
     @staticmethod
     def decide_images(state: State) -> dict:
         try:
-            config = read_yaml(CONFIG_PATH)
-            images_enabled = config.get('images_model', {}).get('enabled', True)
+            images_enabled = state.get("images_enabled", False)
+            logger.info(f"🖼️ Images setting from state: {images_enabled}")
 
             planner = llm.with_structured_output(GlobalImagePlan)
             merged_md = state["merged_md"]
@@ -61,12 +60,14 @@ class ReducerNode:
             assert plan is not None
 
             if not images_enabled:
-                logger.info("Image generation disabled in config - skipping image planning")
+                logger.info("❌ Image generation DISABLED by user - skipping image planning")
                 return {
                     "md_with_placeholders": merged_md,
                     "image_specs": [],
                 }
 
+            logger.info("✅ Image generation ENABLED - asking LLM to plan images...")
+            
             image_plan = planner.invoke(
                 [
                     SystemMessage(content=BlogPrompts.DECIDE_IMAGES_SYSTEM),
@@ -80,6 +81,12 @@ class ReducerNode:
                     ),
                 ]
             )
+            
+            image_count = len(image_plan.images)
+            if image_count > 0:
+                logger.info(f"🎨 LLM decided to generate {image_count} image(s)")
+            else:
+                logger.info("ℹ️ LLM decided no images are needed for this blog")
 
             return {
                 "md_with_placeholders": image_plan.md_with_placeholders,
@@ -99,7 +106,7 @@ class ReducerNode:
         """
         try:
             plan = state["plan"]
-            run_id = state.get("run_id") or uuid.uuid4().hex[:8]
+            run_id = state["run_id"]
             logger.info(f"Using run_id: {run_id}") 
             assert plan is not None
             assert run_id is not None
@@ -123,7 +130,7 @@ class ReducerNode:
             # No images → just write markdown
             if not image_specs:
                 md_filepath.write_text(md, encoding="utf-8")
-                logger.info("No images requested; markdown written directly")
+                logger.info("ℹ️ No images to generate; markdown written directly")
                 return {"final": md}
             
             # ← NEW: Create images directory
@@ -132,8 +139,9 @@ class ReducerNode:
 
             image_service = ImageService(images_dir)
 
-            logger.info("Applying images to markdown")
+            logger.info(f"🖼️ Generating {len(image_specs)} image(s) using Gemini...")
             md = image_service.apply_images_to_markdown(md, image_specs)
+            logger.info("✅ Images generated and placed successfully")
 
             # Write markdown with updated image paths
             md_filepath.write_text(md, encoding="utf-8")

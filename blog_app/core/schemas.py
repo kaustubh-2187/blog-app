@@ -48,7 +48,7 @@ class ImageSpec(BaseModel):
     alt: str
     caption: str
     prompt: str = Field(..., description="Prompt to send to the image model.")
-    size: Literal["1024x1024", "1024x1536", "1536x1024"] = "1024x1024"
+    size: Literal["512x512", "1024x1024", "1024x1536", "1536x1024"] = "512x512"
     quality: Literal["low", "medium", "high"] = "medium"
 
 

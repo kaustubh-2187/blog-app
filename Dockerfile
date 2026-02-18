@@ -1,14 +1,14 @@
 # Base image - Python 3.11 slim
 FROM python:3.11-slim
 
-# Prevent Python from writing .pyc files and buffering output
+# Prevents Python from writing .pyc files and buffering output
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies (curl needed for health checks)
+# Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgomp1 \
     curl \
@@ -28,5 +28,4 @@ RUN mkdir -p data logs images
 EXPOSE 8000
 
 # Run FastAPI application
-# Cloud Run sets PORT environment variable, default to 8000
 CMD uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}

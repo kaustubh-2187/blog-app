@@ -1,13 +1,53 @@
-data/
-images/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 venv/
-frontend.py
-backend.py
-run_api.py
-sample.py
-.coverage
-pytest.ini
+env/
+ENV/
+
+# Environment
 .env
-gen-lang-client-0068855436-6ac47f371465.json
-/data
-removed_from_jenkins
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data & Outputs
+data/
+local_data/
+logs/
+rough/
+
+# Evaluation (dev only)
+evaluation/
+notebooks/
+
+# GCP credentials
+*.json
+!requirements.json
+
+# Coverage
+.coverage
+htmlcov/
+
+# Pytest
+.pytest_cache/
+
+# DVC
+.dvc/
+data.dvc
+
+# Build
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db

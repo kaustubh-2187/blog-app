@@ -3,7 +3,7 @@ from pathlib import Path
 
 CONFIG_PATH = Path("blog_app/config/config.yaml")
 
-DATA_PATH = Path("data")
+DATA_PATH = Path("local_data")
 IMAGES_PATH = Path("images")
 
 def get_run_output_dir(title_slug: str, run_id: str) -> Path:

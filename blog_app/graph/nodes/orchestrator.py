@@ -52,7 +52,10 @@ class OrechestratorNode:
             if forced_kind:
                 plan.blog_kind = "news_roundup"
 
-            logger.info("Orchestrator node completed successfully")
+            logger.info(f"📝 Plan created: '{plan.blog_title}'")
+            logger.info(f"📋 Blog will have {len(plan.tasks)} sections to write")
+            logger.info(f"🎯 Target audience: {plan.audience}")
+            logger.info(f"🎨 Tone: {plan.tone}")
             return {"plan": plan}
         except Exception as e:
             logger.error(f"Orchestrator node failed: {e}")

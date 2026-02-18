@@ -6,23 +6,25 @@ from blog_app.config.config_loader import read_yaml
 from blog_app.config.paths_config import CONFIG_PATH
 
 from blog_app.core.state import State
-from blog_app.prompts.prompts import BlogPrompts
-from blog_app.core.schemas import EvidencePack
-from blog_app.llm.client import llm
-
+from blog_app.core.schemas import EvidenceItem
 from blog_app.logger.custom_logger import CustomLogger
 from blog_app.exception.custom_exception import CustomException
 
 from datetime import date, timedelta
 from typing import List, Optional
-from langchain_core.messages import SystemMessage, HumanMessage
 
 logger = CustomLogger().get_logger(__name__)
 load_dotenv()
 
+
 class ResearchNode:
     """
-    Handles external research and evidence synthesis.
+    Handles external research via Tavily.
+
+    EvidenceItems are built directly from Tavily's structured response —
+    no LLM extraction step needed. Tavily already returns title, url,
+    snippet, and published_at. Using an LLM to re-parse this was the
+    source of repeated failures (Gemini drops fields under function calling).
     """
 
     @staticmethod
@@ -33,7 +35,7 @@ class ResearchNode:
             return date.fromisoformat(s[:10])
         except Exception:
             return None
-    
+
     @staticmethod
     def _tavily_search(query: str, max_results: int = 5) -> List[dict]:
         if not os.getenv("TAVILY_API_KEY"):
@@ -47,15 +49,16 @@ class ResearchNode:
 
             out: List[dict] = []
             for r in results or []:
-                out.append(
-                    {
-                        "title": r.get("title") or "",
-                        "url": r.get("url") or "",
-                        "snippet": r.get("content") or r.get("snippet") or "",
-                        "published_at": r.get("published_date") or r.get("published_at"),
-                        "source": r.get("source"),
-                    }
-                )
+                url = r.get("url") or ""
+                if not url:
+                    continue   # skip results with no URL
+                out.append({
+                    "title":        r.get("title") or "",
+                    "url":          url,
+                    "snippet":      r.get("content") or r.get("snippet") or "",
+                    "published_at": r.get("published_date") or r.get("published_at"),
+                    "source":       r.get("source"),
+                })
             return out
         except Exception as e:
             logger.warning(f"Tavily search failed: {e}")
@@ -64,50 +67,57 @@ class ResearchNode:
     @staticmethod
     def research_node(state: State) -> dict:
         try:
-
             config = read_yaml(CONFIG_PATH)["research"]
-            RESEARCH_SYSTEM = BlogPrompts.RESEARCH_SYSTEM
 
             queries = (state.get("queries") or [])[:config["max_queries"]]
+            logger.info(f"🔍 Starting web research with {len(queries)} queries...")
+
             raw: List[dict] = []
             for q in queries:
-                raw.extend(ResearchNode._tavily_search(q, max_results=config['tavily']['max_results']))
+                raw.extend(
+                    ResearchNode._tavily_search(
+                        q, max_results=config["tavily"]["max_results"]
+                    )
+                )
 
             if not raw:
+                logger.info("⚠️ No research results found")
                 return {"evidence": []}
 
-            extractor = llm.with_structured_output(EvidencePack)
+            logger.info(f"📋 Found {len(raw)} raw search results")
 
-            
-            pack = extractor.invoke(
-                [
-                    SystemMessage(content=RESEARCH_SYSTEM),
-                    HumanMessage(
-                        content=(
-                            f"As-of date: {state['as_of']}\n"
-                            f"Recency days: {state['recency_days']}\n\n"
-                            f"Raw results:\n{raw}"
-                        )
-                    ),
-                ]
-            )
+            # Build EvidenceItems directly — no LLM needed, Tavily data is already structured
+            dedup: dict = {}
+            for r in raw:
+                url = r.get("url") or ""
+                if url and url not in dedup:
+                    dedup[url] = EvidenceItem(
+                        title=r.get("title") or "",
+                        url=url,
+                        snippet=r.get("snippet") or "",
+                        published_at=r.get("published_at"),
+                        source=r.get("source"),
+                    )
 
-            dedup = {}
-            for e in pack.evidence:
-                if e.url:
-                    dedup[e.url] = e
             evidence = list(dedup.values())
 
+            # For open_book: filter to items within the recency window
             if state.get("mode") == "open_book":
-                as_of = date.fromisoformat(state["as_of"])
-                cutoff = as_of - timedelta(days=int(state["recency_days"]))
-                evidence = [e for e in evidence if (d := ResearchNode._iso_to_date(e.published_at)) and d >= cutoff]
+                as_of   = date.fromisoformat(state["as_of"])
+                cutoff  = as_of - timedelta(days=int(state["recency_days"]))
+                before  = len(evidence)
+                evidence = [
+                    e for e in evidence
+                    if (d := ResearchNode._iso_to_date(e.published_at)) and d >= cutoff
+                ]
+                logger.info(f"📅 Filtered to {len(evidence)} recent items (from {before})")
 
+            logger.info(f"✅ Research complete: {len(evidence)} evidence items ready")
             return {
                 "evidence": evidence,
-                "run_id": state.get("run_id")
+                "run_id":   state.get("run_id"),
             }
+
         except Exception as e:
             logger.exception(f"Research node failed: {e}")
             raise CustomException("Research node execution failed", sys)
-

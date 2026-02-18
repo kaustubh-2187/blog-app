@@ -23,13 +23,12 @@ pipeline {
             steps {
                 script {
                     echo 'Cloning from GitHub...'
-                    // MANUAL: Update URL to your GitHub repo
                     checkout scmGit(
                         branches: [[name: '*/main']], 
                         extensions: [], 
                         userRemoteConfigs: [[
-                            credentialsId: 'github-token',  // Must match Jenkins credential ID
-                            url: 'https://github.com/kaustubh-2187/blog-app.git'  // Your repo URL
+                            credentialsId: 'github-token',  
+                            url: 'https://github.com/kaustubh-2187/blog-app.git'  // REPO URL
                         ]]
                     )
                 }

@@ -34,9 +34,7 @@ class WorkerNode:
                 for e in evidence[:20]
             )
 
-            logger.info(
-                f"Generating section: task_id={task.id}, title='{task.title}'"
-            )
+            logger.info(f"✍️ Writing section {task.id}/{payload.get('total_tasks', '?')}: '{task.title}'")
 
             section_md = llm.invoke(
                 [
@@ -65,7 +63,8 @@ class WorkerNode:
                 ]
             ).content.strip()
 
-            logger.info(f"Worker node completed task_id={task.id}")
+            word_count = len(section_md.split())
+            logger.info(f"✅ Section {task.id} complete (~{word_count} words)")
             return {"sections": [(task.id, section_md)]}
         except Exception as e:
             logger.error(f"Worker node failed: {e}")
