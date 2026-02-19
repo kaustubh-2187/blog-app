@@ -55,7 +55,7 @@ app.include_router(blog.router, prefix="/api/v1", tags=["Blog"])
 app.include_router(files.router, prefix="/api/v1", tags=["Files"])
 
 # Mount static files (CSS, JS, images) with a different path
-app.mount("/assets", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
