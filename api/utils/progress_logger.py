@@ -1,15 +1,3 @@
-"""
-progress_logger.py
-
-Translates internal pipeline stages into clean, human-readable
-progress messages shown to the user in the live log box.
-
-Usage (in blog.py):
-    from api.utils.progress_logger import ProgressLogger
-    progress = ProgressLogger(run_id, job_logs)
-    progress.emit("routing")
-"""
-
 from datetime import datetime
 
 
@@ -53,10 +41,6 @@ STAGE_MESSAGES = {
 
 
 class ProgressLogger:
-    """
-    Appends clean, user-facing progress lines to a shared job_logs list.
-    Only this class should write to the list during generation.
-    """
 
     def __init__(self, run_id: str, job_logs: dict):
         self.run_id = run_id
@@ -68,7 +52,6 @@ class ProgressLogger:
     def emit(self, stage: str, **kwargs) -> None:
         """
         Emit a progress message for the given stage key.
-        Optional kwargs are used for format placeholders (e.g. current, total).
         """
         template = STAGE_MESSAGES.get(stage, stage)
         try:

@@ -21,10 +21,10 @@ import logging
 
 router = APIRouter()
 
-# In-memory storage for job status (replace with Redis/DB in production)
+# In-memory storage for job status
 job_status = {}
 
-# Store user-facing progress messages per run_id
+# Storing user-facing progress messages per run_id
 job_logs = {}
 
 
@@ -108,11 +108,6 @@ async def generate_blog_async(request: BlogGenerationRequest, run_id: str):
         progress.emit("routing")
         job_status[run_id]["message"] = "Analysing topic…"
 
-        # We run the full pipeline in a thread so it doesn't block the
-        # event loop, but we want to emit progress mid-run.
-        # Strategy: wrap run_blog_pipeline with a streaming helper that
-        # calls back into our progress logger as each graph node finishes.
-
         def _run_with_progress():
             from blog_app.graph.builder import GraphBuilder
             from datetime import date as _date
@@ -189,8 +184,7 @@ async def generate_blog_async(request: BlogGenerationRequest, run_id: str):
                         )
 
                     elif node == "reducer":
-                        # reducer subgraph emits its own sub-nodes;
-                        # treat any reducer update as assembly phase
+
                         sub = payload  # may contain merge/decide/generate keys
                         if "merged_md" in sub:
                             progress.emit("merging")
